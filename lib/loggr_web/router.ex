@@ -19,6 +19,12 @@ defmodule LoggrWeb.Router do
     get "/", PageController, :index
   end
 
+  scope "/api/", LoggrWeb do
+    pipe_through :api
+
+    resources "/logs", LogController
+  end
+
   # Other scopes may use custom stacks.
   # scope "/api", LoggrWeb do
   #   pipe_through :api
