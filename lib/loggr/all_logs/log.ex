@@ -16,6 +16,6 @@ defmodule Loggr.AllLogs.Log do
   def changeset(log, attrs) do
     log
     |> cast(attrs, [:request_verb, :request_body, :response_code, :response_body])
-    |> validate_required([:request_verb, :request_body, :response_code, :response_body])
+    |> validate_required([:request_verb])
   end
 end

@@ -23,6 +23,11 @@ defmodule LoggrWeb.Router do
     pipe_through :api
 
     resources "/logs", LogController
+    get "/request", RequestController, :log
+    post "/request", RequestController, :log
+    patch "/request", RequestController, :log
+    put "/request", RequestController, :log
+    delete "/request", RequestController, :log
   end
 
   # Other scopes may use custom stacks.
