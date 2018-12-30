@@ -6,17 +6,13 @@ defmodule LoggrWeb.LogControllerTest do
 
   @create_attrs %{
     request_body: "some request_body",
-    request_verb: "some request_verb",
-    response_body: "some response_body",
-    response_code: "some response_code"
+    request_verb: "some request_verb"
   }
   @update_attrs %{
     request_body: "some updated request_body",
-    request_verb: "some updated request_verb",
-    response_body: "some updated response_body",
-    response_code: "some updated response_code"
+    request_verb: "some updated request_verb"
   }
-  @invalid_attrs %{request_body: nil, request_verb: nil, response_body: nil, response_code: nil}
+  @invalid_attrs %{request_body: nil, request_verb: nil}
 
   def fixture(:log) do
     {:ok, log} = AllLogs.create_log(@create_attrs)
@@ -44,9 +40,7 @@ defmodule LoggrWeb.LogControllerTest do
       assert %{
                "id" => id,
                "request_body" => "some request_body",
-               "request_verb" => "some request_verb",
-               "response_body" => "some response_body",
-               "response_code" => "some response_code"
+               "request_verb" => "some request_verb"
              } = json_response(conn, 200)["data"]
     end
 
@@ -68,9 +62,7 @@ defmodule LoggrWeb.LogControllerTest do
       assert %{
                "id" => id,
                "request_body" => "some updated request_body",
-               "request_verb" => "some updated request_verb",
-               "response_body" => "some updated response_body",
-               "response_code" => "some updated response_code"
+               "request_verb" => "some updated request_verb"
              } = json_response(conn, 200)["data"]
     end
 

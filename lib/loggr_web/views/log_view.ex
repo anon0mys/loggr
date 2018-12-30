@@ -13,8 +13,6 @@ defmodule LoggrWeb.LogView do
   def render("log.json", %{log: log}) do
     %{id: log.id,
       request_verb: log.request_verb,
-      request_body: log.request_body,
-      response_code: log.response_code,
-      response_body: log.response_body}
+      request_body: log.request_body,}
   end
 end

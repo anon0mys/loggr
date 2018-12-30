@@ -6,9 +6,9 @@ defmodule Loggr.AllLogsTest do
   describe "logs" do
     alias Loggr.AllLogs.Log
 
-    @valid_attrs %{request_body: "some request_body", request_verb: "some request_verb", response_body: "some response_body", response_code: "some response_code"}
-    @update_attrs %{request_body: "some updated request_body", request_verb: "some updated request_verb", response_body: "some updated response_body", response_code: "some updated response_code"}
-    @invalid_attrs %{request_body: nil, request_verb: nil, response_body: nil, response_code: nil}
+    @valid_attrs %{request_body: "some request_body", request_verb: "some request_verb"}
+    @update_attrs %{request_body: "some updated request_body", request_verb: "some updated request_verb"}
+    @invalid_attrs %{request_body: nil, request_verb: nil}
 
     def log_fixture(attrs \\ %{}) do
       {:ok, log} =
@@ -33,8 +33,6 @@ defmodule Loggr.AllLogsTest do
       assert {:ok, %Log{} = log} = AllLogs.create_log(@valid_attrs)
       assert log.request_body == "some request_body"
       assert log.request_verb == "some request_verb"
-      assert log.response_body == "some response_body"
-      assert log.response_code == "some response_code"
     end
 
     test "create_log/1 with invalid data returns error changeset" do
@@ -46,8 +44,6 @@ defmodule Loggr.AllLogsTest do
       assert {:ok, %Log{} = log} = AllLogs.update_log(log, @update_attrs)
       assert log.request_body == "some updated request_body"
       assert log.request_verb == "some updated request_verb"
-      assert log.response_body == "some updated response_body"
-      assert log.response_code == "some updated response_code"
     end
 
     test "update_log/2 with invalid data returns error changeset" do
