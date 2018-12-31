@@ -1,4 +1,6 @@
 defmodule LoggrWeb.LogRequest.Mock do
+  @behaviour LoggrWeb.LogRequest
+  
   def post(_params) do
     { :ok, success() }
   end
