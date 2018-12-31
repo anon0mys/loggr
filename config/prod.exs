@@ -17,6 +17,9 @@ config :loggr, LoggrWeb.Endpoint,
 # Do not print debug messages in production
 config :logger, level: :info
 
+# Configuration for swappable log request set to mock module
+config :loggr, :log_request, LoggrWeb.LogRequest.HTTPClient
+
 # ## SSL Support
 #
 # To get SSL working, you will need to add the `https` key

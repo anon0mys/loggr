@@ -1,4 +1,4 @@
-defmodule LoggrWeb.LogRequest do
+defmodule LoggrWeb.LogRequest.HTTPClient do
   alias LoggrWeb.Router.Helpers, as: Routes
   alias LoggrWeb.Endpoint
 

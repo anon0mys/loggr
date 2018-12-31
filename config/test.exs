@@ -16,3 +16,6 @@ config :loggr, Loggr.Repo,
   database: System.get_env("TEST_DB_NAME"),
   hostname: System.get_env("DB_HOST"),
   pool: Ecto.Adapters.SQL.Sandbox
+
+# Configuration for swappable log request set to mock module
+config :loggr, :log_request, LoggrWeb.LogRequest.Mock

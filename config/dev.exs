@@ -66,6 +66,9 @@ config :phoenix, :stacktrace_depth, 20
 # Initialize plugs at runtime for faster development compilation
 config :phoenix, :plug_init_mode, :runtime
 
+# Configuration for swappable log request set to mock module
+config :loggr, :log_request, LoggrWeb.LogRequest.HTTPClient
+
 # Configure your database
 config :loggr, Loggr.Repo,
   username: System.get_env("DB_USER"),

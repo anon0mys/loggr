@@ -1,9 +1,9 @@
 defmodule LoggrWeb.LogClient do
-  alias LoggrWeb.LogRequest
+  @log_request Application.get_env(:loggr, :log_request)
 
   def send_log(conn) do
     payload = cast_to_log_params(conn) |> Jason.encode!()
-    case LogRequest.post(payload) do
+    case @log_request.post(payload) do
       {:ok, %HTTPoison.Response{status_code: 201, body: body}} ->
         Jason.decode!(body)
         |> format_response(201)
